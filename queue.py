@@ -23,3 +23,17 @@ class Queue:
             self.values[end] = temp
             start += 1
             end -= 1
+
+    # Interleave first half with second half.
+    def inerleave_queue(self):
+        if len(self.values) % 2 == 0:
+            firstStart = 0
+            firstEnd = (len(self.values) / 2) - 1
+            secondStart = firstEnd + 1
+            secondEnd = len(self.values) - 1
+            while(firstStart <= firstEnd and secondStart <= secondEnd):
+                temp = firstStart
+                firstStart = secondStart
+                secondStart = temp
+                firstStart += 1
+                secondStart += 1
