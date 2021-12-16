@@ -25,26 +25,29 @@ class Queue:
             end -= 1
 
     # Interleave first half with second half.
-    def inerleave_queue(self):
-        if len(self.values) % 2 == 0:
-            firstStart = 0
-            firstEnd = (len(self.values) / 2) - 1
-            secondStart = firstEnd + 1
-            secondEnd = len(self.values) - 1
-            while(firstStart <= firstEnd and secondStart <= secondEnd):
-                temp = self.values[firstStart]
-                self.values[firstStart] = self.values[secondStart]
-                self.values[secondStart] = temp
-                firstStart += 1
-                secondStart += 1
-        else:
-            firstStart = 0
-            firstEnd = ((len(self.values) - 1) / 2) - 1
-            secondStart = firstEnd + 2
-            secondEnd = len(self.values) - 1
-            while(firstStart <= firstEnd and secondStart <= secondEnd):
-                temp = self.values[firstStart]
-                self.values[firstStart] = self.values[secondStart]
-                self.values[secondStart] = temp
-                firstStart += 1
-                secondStart += 1
+    def interleave_queue(self):
+        try:
+            if len(self.values) % 2 == 0:
+                firstStart = 0
+                firstEnd = int((len(self.values) / 2) - 1)
+                secondStart = int((len(self.values) / 2))
+                secondEnd = int(len(self.values) - 1)
+                while (firstStart <= firstEnd and secondStart <= secondEnd):
+                    temp = self.values[firstStart]
+                    self.values[firstStart] = self.values[secondStart]
+                    self.values[secondStart] = temp
+                    firstStart += 1
+                    secondStart += 1
+            else:
+                firstStart = 0
+                firstEnd = int(((len(self.values) - 1) / 2) - 1)
+                secondStart = firstEnd + 2
+                secondEnd = len(self.values) - 1
+                while (firstStart <= firstEnd and secondStart <= secondEnd):
+                    temp = self.values[firstStart]
+                    self.values[firstStart] = self.values[secondStart]
+                    self.values[secondStart] = temp
+                    firstStart += 1
+                    secondStart += 1
+        finally:
+            return
