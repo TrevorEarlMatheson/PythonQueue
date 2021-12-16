@@ -86,3 +86,9 @@ class TestQueue(unittest.TestCase):
             queue.enqueue(value)
         queue.interleave_queue()
         self.assertEqual(expectedResult, queue.values, "Queue was " + str(queue.values) + " but should have been " + str(expectedResult))
+
+    def test_interleave_queue_four(self):
+        expectedResult = []
+        queue = Queue()
+        queue.interleave_queue()
+        self.assertEqual(expectedResult, queue.values, "Queue was " + str(queue.values) + " but should have been " + str(expectedResult))
