@@ -3,4 +3,4 @@ class Queue:
         self.values = []
 
     def enqueue(self, key):
-        self.values.insert(0, key)
+        self.values.append(key)
