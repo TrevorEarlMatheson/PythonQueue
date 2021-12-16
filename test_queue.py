@@ -50,3 +50,45 @@ class TestQueue(unittest.TestCase):
         queue = Queue()
         queue.reverse_queue()
         self.assertEqual([], queue.values, "Queue was " + str(queue.values) + " but should have been " + str([]))
+
+    def test_interleave_queue_one(self):
+        expectedResult = [4, 1]
+        queue = Queue()
+        values = [1, 4]
+        for value in values:
+            queue.enqueue(value)
+        queue.interleave_queue()
+        self.assertEqual(expectedResult, queue.values, "Queue was " + str(queue.values) + " but should have been " + str(expectedResult))
+
+    def test_interleave_queue_two(self):
+        expectedResult = [1, 3, 4]
+        queue = Queue()
+        values = [4, 3, 1]
+        for value in values:
+            queue.enqueue(value)
+        queue.interleave_queue()
+        self.assertEqual(expectedResult, queue.values, "Queue was " + str(queue.values) + " but should have been " + str(expectedResult))
+
+    def test_interleave_queue_three(self):
+        expectedResult = [5, 4, 3, 2, 1, 10, 9, 8, 7, 6]
+        queue = Queue()
+        values = [10, 9, 8, 7, 6, 5, 4, 3, 2, 1]
+        for value in values:
+            queue.enqueue(value)
+        queue.interleave_queue()
+        self.assertEqual(expectedResult, queue.values, "Queue was " + str(queue.values) + " but should have been " + str(expectedResult))
+
+    def test_interleave_queue_four(self):
+        expectedResult = [1, 2, 3, 4, 5, 6, 7, 8, 9]
+        queue = Queue()
+        values = [6, 7, 8, 9, 5, 1, 2, 3, 4]
+        for value in values:
+            queue.enqueue(value)
+        queue.interleave_queue()
+        self.assertEqual(expectedResult, queue.values, "Queue was " + str(queue.values) + " but should have been " + str(expectedResult))
+
+    def test_interleave_queue_four(self):
+        expectedResult = []
+        queue = Queue()
+        queue.interleave_queue()
+        self.assertEqual(expectedResult, queue.values, "Queue was " + str(queue.values) + " but should have been " + str(expectedResult))
