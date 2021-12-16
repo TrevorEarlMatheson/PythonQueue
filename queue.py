@@ -1,6 +1,6 @@
 class Queue:
     def __init__(self):
-        self.queue = []
+        self.values = []
 
-    def Enqueue(self, key):
-        self.queue.append(key)
+    def enqueue(self, key):
+        self.values.insert(0, key)
