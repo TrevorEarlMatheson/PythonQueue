@@ -8,4 +8,7 @@ class Queue:
 
    # Remove value at the front of the queue.
     def dequeue(self):
-        self.values.pop(0)
+        try:
+            self.values.pop(0)
+        finally:
+            return
