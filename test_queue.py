@@ -7,5 +7,5 @@ class TestQueue(unittest.TestCase):
         values = [3, 2, 5, 4, 7, 1, 5]
         for value in values:
             queue.enqueue(value)
-        self.assertEqual(values[::-1], queue.values, "Queue was " + str(queue.values) + " but should have been " + str(values[::-1]))
+        self.assertEqual(values, queue.values, "Queue was " + str(queue.values) + " but should have been " + str(values))
 
