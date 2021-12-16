@@ -31,3 +31,22 @@ class TestQueue(unittest.TestCase):
         self.assertEqual([0], queue.values, "Queue was " + str(queue.values) + " but should have been " + str([0]))
         queue.dequeue()
         self.assertEqual([], queue.values, "Queue was " + str(queue.values) + " but should have been " + str([]))
+
+    def test_reverse_queue_one(self):
+        queue = Queue()
+        values = [2, 5, 6, 8, 1, 3, 4, 0]
+        for value in values:
+            queue.enqueue(value)
+        queue.reverse_queue()
+        self.assertEqual(values[::-1], queue.values, "Queue was " + str(queue.values) + " but should have been " + str(values[::-1]))
+
+    def test_reverse_queue_two(self):
+        queue = Queue()
+        queue.enqueue(0)
+        queue.reverse_queue()
+        self.assertEqual([0], queue.values, "Queue was " + str(queue.values) + " but should have been " + str([0]))
+
+    def test_reverse_queue_three(self):
+        queue = Queue()
+        queue.reverse_queue()
+        self.assertEqual([], queue.values, "Queue was " + str(queue.values) + " but should have been " + str([]))
