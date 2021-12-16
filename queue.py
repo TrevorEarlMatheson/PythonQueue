@@ -12,3 +12,14 @@ class Queue:
             self.values.pop(0)
         finally:
             return
+
+    # Reverse values in the queue
+    def reverse_queue(self):
+        end = len(self.values) - 1
+        start = 0
+        while start < end:
+            temp = self.values[start]
+            self.values[start] = self.values[end]
+            self.values[end] = temp
+            start += 1
+            end -= 1
