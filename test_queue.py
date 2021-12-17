@@ -92,3 +92,43 @@ class TestQueue(unittest.TestCase):
         queue = Queue()
         queue.interleave_queue()
         self.assertEqual(expectedResult, queue.values, "Queue was " + str(queue.values) + " but should have been " + str(expectedResult))
+
+    def test_ascending_sort_one(self):
+        expectedResult = [1, 2, 3, 4, 5, 6, 7]
+        values = [2, 4, 7, 6, 5, 3, 1]
+        queue = Queue()
+        for value in values:
+            queue.enqueue(value)
+        queue.ascending_sort()
+        self.assertEqual(expectedResult, queue.values, "Queue was " + str(queue.values) + " but should have been " + str(expectedResult))
+
+    def test_ascending_sort_two(self):
+        expectedResult = []
+        queue = Queue()
+        queue.ascending_sort()
+        self.assertEqual(expectedResult, queue.values, "Queue was " + str(queue.values) + " but should have been " + str(expectedResult))
+
+    def test_ascending_sort_two(self):
+        expectedResult = [1]
+        queue = Queue()
+        queue.enqueue(1)
+        queue.ascending_sort()
+        self.assertEqual(expectedResult, queue.values, "Queue was " + str(queue.values) + " but should have been " + str(expectedResult))
+
+    def test_ascending_sort_three(self):
+        expectedResult = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20]
+        values = [20, 2, 4, 3, 1, 13, 14, 19, 17, 18, 12, 11, 16, 9, 5, 15, 6, 8, 7, 10]
+        queue = Queue()
+        for value in values:
+            queue.enqueue(value)
+        queue.ascending_sort()
+        self.assertEqual(expectedResult, queue.values, "Queue was " + str(queue.values) + " but should have been " + str(expectedResult))
+
+    def test_ascending_sort_four(self):
+        expectedResult = [1, 3, 3, 5, 6, 7, 10]
+        values = [3, 10, 6, 1, 5, 3, 7]
+        queue = Queue()
+        for value in values:
+            queue.enqueue(value)
+        queue.ascending_sort()
+        self.assertEqual(expectedResult, queue.values, "Queue was " + str(queue.values) + " but should have been " + str(expectedResult))
