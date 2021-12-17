@@ -72,3 +72,24 @@ class Queue:
                     indexPosition += 1
             self.enqueue(self.values.pop(currentMin))
             upperBound -= 1
+
+    # Method sorts queue in descending order.
+    def descending_sort(self):
+        if self.values == []:
+            return
+
+        upperBound = len(self.values) - 1
+        while upperBound >= 0:
+            indexPosition = 0
+            currentMax = None
+            while indexPosition <= upperBound:
+                if currentMax == None:
+                    currentMax = indexPosition
+                    indexPosition += 1
+                elif self.values[currentMax] < self.values[indexPosition]:
+                    currentMax = indexPosition
+                    indexPosition += 1
+                else:
+                    indexPosition += 1
+            self.enqueue(self.values.pop(currentMax))
+            upperBound -= 1
