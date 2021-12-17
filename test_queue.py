@@ -132,3 +132,43 @@ class TestQueue(unittest.TestCase):
             queue.enqueue(value)
         queue.ascending_sort()
         self.assertEqual(expectedResult, queue.values, "Queue was " + str(queue.values) + " but should have been " + str(expectedResult))
+
+    def test_descending_sort_one(self):
+        expectedResult = [10, 7, 6, 5, 3, 3, 1]
+        values = [3, 10, 6, 1, 5, 3, 7]
+        queue = Queue()
+        for value in values:
+            queue.enqueue(value)
+        queue.descending_sort()
+        self.assertEqual(expectedResult, queue.values, "Queue was " + str(queue.values) + " but should have been " + str(expectedResult))
+
+    def test_descending_sort_two(self):
+        expectedResult = [20, 19, 18, 17, 16, 15, 14, 13, 12, 11, 10, 9, 8, 7, 6, 5, 4, 3, 2, 1]
+        values = [20, 2, 4, 3, 1, 13, 14, 19, 17, 18, 12, 11, 16, 9, 5, 15, 6, 8, 7, 10]
+        queue = Queue()
+        for value in values:
+            queue.enqueue(value)
+        queue.descending_sort()
+        self.assertEqual(expectedResult, queue.values, "Queue was " + str(queue.values) + " but should have been " + str(expectedResult))
+
+    def test_descending_sort_three(self):
+        expectedResult = [1]
+        queue = Queue()
+        queue.enqueue(1)
+        queue.descending_sort()
+        self.assertEqual(expectedResult, queue.values, "Queue was " + str(queue.values) + " but should have been " + str(expectedResult))
+
+    def test_descending_sort_four(self):
+        expectedResult = []
+        queue = Queue()
+        queue.descending_sort()
+        self.assertEqual(expectedResult, queue.values, "Queue was " + str(queue.values) + " but should have been " + str(expectedResult))
+
+    def test_descending_sort_five(self):
+        expectedResult = [7, 6, 5, 4, 3, 2, 1]
+        values = [2, 4, 7, 6, 5, 3, 1]
+        queue = Queue()
+        for value in values:
+            queue.enqueue(value)
+        queue.descending_sort()
+        self.assertEqual(expectedResult, queue.values, "Queue was " + str(queue.values) + " but should have been " + str(expectedResult))
