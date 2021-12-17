@@ -1,5 +1,5 @@
 import unittest
-from queue import Queue
+from queue_object import Queue
 
 class TestQueue(unittest.TestCase):
     def test_enqueue(self):
