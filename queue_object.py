@@ -54,8 +54,11 @@ class Queue:
 
     # Method sorts queue in ascending order.
     def ascending_sort(self):
+        if self.values == []:
+            return
+
         upperBound = len(self.values) - 1
-        while upperBound > 0:
+        while upperBound >= 0:
             indexPosition = 0
             currentMin = None
             while indexPosition <= upperBound:
@@ -64,6 +67,8 @@ class Queue:
                     indexPosition += 1
                 elif self.values[currentMin] > self.values[indexPosition]:
                     currentMin = indexPosition
+                    indexPosition += 1
+                else:
                     indexPosition += 1
             self.enqueue(self.values.pop(currentMin))
             upperBound -= 1
